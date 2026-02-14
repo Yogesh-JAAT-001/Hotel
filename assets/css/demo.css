@@ -1,0 +1,147 @@
+:root {
+  --ink-900: #101a2c;
+  --ink-700: #2c3b58;
+  --gold: #c8a53a;
+  --line: rgba(16, 26, 44, 0.13);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  background: linear-gradient(145deg, #f7f3ea, #ece3d4);
+  color: var(--ink-900);
+}
+
+.wrap {
+  width: min(1080px, 92vw);
+  margin: 24px auto 34px;
+}
+
+.hero {
+  border-radius: 22px;
+  overflow: hidden;
+  background: #111d31;
+  color: #fff;
+  border: 1px solid rgba(200, 165, 58, 0.45);
+  box-shadow: 0 16px 36px rgba(16, 26, 44, 0.2);
+}
+
+.hero img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  display: block;
+  opacity: 0.8;
+}
+
+.hero-content {
+  padding: 18px;
+}
+
+.hero-content h1 {
+  margin: 0 0 8px;
+  font-family: "Playfair Display", serif;
+}
+
+.hero-content p {
+  margin: 0;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-row {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 9px 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 10px;
+  font-weight: 800;
+  border: 1px solid transparent;
+}
+
+.btn-gold {
+  color: #1a2339;
+  background: linear-gradient(145deg, #e4c15a, #c69a2b);
+}
+
+.btn-outline {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.section {
+  margin-top: 16px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.8);
+  padding: 14px;
+}
+
+.section h2 {
+  margin: 0 0 8px;
+  font-family: "Playfair Display", serif;
+}
+
+.video-shell {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #101a2c;
+}
+
+.video-shell video {
+  width: 100%;
+  display: block;
+  max-height: 430px;
+}
+
+.grid {
+  margin-top: 12px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.card {
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  background: #fff;
+}
+
+.card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+  background: #efe8dc;
+}
+
+.card p {
+  margin: 0;
+  padding: 9px 10px;
+  color: var(--ink-700);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.footer {
+  margin-top: 14px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ink-700);
+  text-align: center;
+  font-weight: 700;
+}
