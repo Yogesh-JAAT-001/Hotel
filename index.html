@@ -27,7 +27,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         /* TIMER UI - FIXED CONTRAST */
         #timerContainer { background: #ffffff; color: #020617; box-shadow: 0 10px 40px rgba(0,0,0,0.25); border: 3px solid #c9a227; z-index: 1000; }
         @keyframes flicker { 0%, 100% { background-color: #ffffff; } 50% { background-color: #fca5a5; } }
@@ -61,7 +61,7 @@
     </nav>
 
     <main class="max-w-6xl mx-auto px-6 pt-48 pb-32 space-y-32">
-        
+
         <section class="text-center">
             <div class="inline-block px-4 py-1 border border-gray-300 rounded-full text-slate-600 text-[10px] font-mono mb-6 uppercase tracking-widest">ID: 2427030798</div>
             <h1 class="text-6xl md:text-7xl font-extrabold mb-8 uppercase leading-tight">
@@ -77,17 +77,17 @@
                 <h2 class="text-3xl font-extrabold mb-6">Problem Statement</h2>
                 <p class="text-slate-700 leading-relaxed text-justify">Traditional hotel systems lack automation, centralized management, and real-time analytics. Manual booking and dining operations create inefficiencies and reduce customer experience.</p>
             </div>
-	            <div class="space-y-6">
-	                <div class="glass p-7 rounded-3xl border-r-4 border-[#d1d5db]">
-	                    <h3 class="text-[#c9a227] font-bold text-xs uppercase tracking-widest mb-2">Literature Review / Market Research</h3>
-	                    <p class="text-sm text-slate-700 italic">Existing systems provide partial automation but lack unified dashboards and intelligent management.</p>
-	                </div>
-	                <div class="glass p-7 rounded-3xl border-r-4 border-[#d1d5db]">
-	                    <h3 class="text-[#c9a227] font-bold text-xs uppercase tracking-widest mb-2">Research Gap / Innovation</h3>
-	                    <p class="text-sm text-slate-700 italic">This system integrates full hotel operations including booking, dining, analytics, and admin control in one centralized intelligent system.</p>
-	                </div>
-	            </div>
-	        </section>
+            <div class="space-y-6">
+                <div class="glass p-7 rounded-3xl border-r-4 border-[#d1d5db]">
+                    <h3 class="text-[#c9a227] font-bold text-xs uppercase tracking-widest mb-2">Literature Review / Market Research</h3>
+                    <p class="text-sm text-slate-700 italic">Existing systems provide partial automation but lack unified dashboards and intelligent management.</p>
+                </div>
+                <div class="glass p-7 rounded-3xl border-r-4 border-[#d1d5db]">
+                    <h3 class="text-[#c9a227] font-bold text-xs uppercase tracking-widest mb-2">Research Gap / Innovation</h3>
+                    <p class="text-sm text-slate-700 italic">This system integrates full hotel operations including booking, dining, analytics, and admin control in one centralized intelligent system.</p>
+                </div>
+            </div>
+        </section>
 
         <section id="methodology" class="space-y-12">
             <h2 class="text-4xl font-black text-center uppercase tracking-tight">System <span class="text-[#c9a227]">Methodology</span></h2>
@@ -112,13 +112,15 @@
 
         <section class="glass p-10 rounded-3xl text-center">
             <h2 class="text-3xl font-extrabold mb-6">Project Demo Video</h2>
-            
-            <div class="aspect-video rounded-2xl overflow-hidden shadow-lg">
-                <iframe 
-                    class="w-full h-full"
-                    src="https://www.youtube.com/embed/sgep-sNboQI"
+
+            <!-- Use CSS aspect-ratio fallback (no dependency on Tailwind aspect-ratio plugin). -->
+            <div class="relative w-full rounded-2xl overflow-hidden shadow-lg" style="padding-top:56.25%;">
+                <iframe
+                    class="absolute inset-0 w-full h-full"
+                    src="https://www.youtube-nocookie.com/embed/sgep-sNboQI"
                     title="Hotel Management System Demo"
-                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
                     allowfullscreen>
                 </iframe>
             </div>
@@ -130,9 +132,14 @@
                    View GitHub Repository
                 </a>
             </div>
+
+            <p class="mt-4 text-[11px] text-slate-600 uppercase tracking-widest opacity-80">
+                If the embed is blocked, open the demo on
+                <a class="underline decoration-[#c9a227]/60 hover:decoration-[#c9a227] transition" href="https://youtu.be/sgep-sNboQI" target="_blank" rel="noopener">YouTube</a>.
+            </p>
         </section>
 
-	        <section id="results" class="glass p-12 rounded-[3.5rem] border-t-4 border-[#c9a227]">
+        <section id="results" class="glass p-12 rounded-[3.5rem] border-t-4 border-[#c9a227]">
             <h2 class="text-3xl font-black mb-12 text-center uppercase tracking-tight">Results & <span class="text-[#c9a227]">Analysis</span></h2>
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div class="h-80"><canvas id="resultsChart"></canvas></div>
@@ -177,7 +184,7 @@
                 let m = Math.floor(sec / 60);
                 let s = sec % 60;
                 document.getElementById('displayTime').innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-                
+
                 if (sec >= 480 && sec < 600) { // 8-10 Mins Warning
                     document.getElementById('timerContainer').classList.add('timer-warning');
                     document.getElementById('timerIcon').classList.replace('fa-hourglass-start', 'fa-hourglass-half');
@@ -207,7 +214,7 @@
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: { legend: { display: false } },
-                scales: { 
+                scales: {
                     y: { beginAtZero: true, grid: { color: '#d1d5db55' }, ticks: { color: '#334155' } },
                     x: { grid: { display: false }, ticks: { color: '#334155' } }
                 }
