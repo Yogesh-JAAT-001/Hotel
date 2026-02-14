@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBL Presentation | 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+        body {
+            background-color: #f8f6f2;
+            color: #0f172a;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .glass {
+            background: rgba(255,255,255,0.85);
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #c9a227, #e6c76e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* TIMER UI - FIXED CONTRAST */
+        #timerContainer { background: #ffffff; color: #020617; box-shadow: 0 10px 40px rgba(0,0,0,0.25); border: 3px solid #c9a227; z-index: 1000; }
+        @keyframes flicker { 0%, 100% { background-color: #ffffff; } 50% { background-color: #fca5a5; } }
+        .timer-warning { animation: flicker 1s infinite; border: 3px solid #ef4444 !important; color: #b91c1c !important; }
+        .timer-stop { background-color: #991b1b !important; color: #ffffff !important; border: 3px solid #f87171 !important; animation: none; }
+    </style>
+</head>
+<body onload="startTimer()">
+
+    <div id="timerContainer" class="fixed bottom-10 right-10 px-8 py-4 rounded-3xl flex items-center gap-4 transition-all">
+        <i class="fas fa-hourglass-start text-[#c9a227] text-2xl" id="timerIcon"></i>
+        <span id="displayTime" class="text-4xl font-black font-mono tracking-tighter">00:00</span>
+    </div>
+
+    <nav class="fixed w-full z-50 glass border-b border-gray-300/70 px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <div class="bg-white p-1 rounded flex items-center justify-center shadow-md" style="height: 48px; width: 48px;">
+                <img src="mujlogo.jpg" alt="MUJ" class="h-full w-auto object-contain" onerror="this.src='https://via.placeholder.com/50?text=MUJ'">
+            </div>
+            <div class="flex flex-col text-left">
+                <span class="text-xl font-black text-[#0f172a] leading-none uppercase tracking-tighter">PBL <span class="text-[#c9a227] italic">2026</span></span>
+                <span class="text-[9px] text-slate-600 font-bold uppercase tracking-widest mt-1">Dept. of Computer Science & Engineering</span>
+            </div>
+        </div>
+        <div class="hidden md:flex gap-8 text-[11px] uppercase tracking-widest font-bold opacity-70">
+            <a href="#problem" class="hover:text-[#c9a227] transition">Problem</a>
+            <a href="#methodology" class="hover:text-[#c9a227] transition">Methodology</a>
+            <a href="#results" class="hover:text-[#c9a227] transition">Results</a>
+            <a href="#team" class="hover:text-[#c9a227] transition">Team</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 pt-48 pb-32 space-y-32">
+        
+        <section class="text-center">
+            <div class="inline-block px-4 py-1 border border-gray-300 rounded-full text-slate-600 text-[10px] font-mono mb-6 uppercase tracking-widest">ID: 2427030798</div>
+            <h1 class="text-6xl md:text-7xl font-extrabold mb-8 uppercase leading-tight">
+                <span class="gradient-text uppercase">THE HEARTLAND ABODE<br>AI-Enabled Hotel Management System</span>
+            </h1>
+            <p class="text-slate-700 max-w-2xl mx-auto italic text-lg leading-relaxed border-l-2 border-[#c9a227]/40 pl-6 text-left">
+                The Heartland Abode is a full-stack AI-enabled Hotel Management System designed to automate hotel operations including room booking, dining management, customer dashboard, and administrative analytics using PHP, MySQL, and modern web technologies.
+            </p>
+        </section>
+
+        <section id="problem" class="grid md:grid-cols-2 gap-12 items-stretch">
+            <div class="glass p-10 rounded-[2.5rem] flex flex-col justify-center border-l-4 border-[#c9a227]">
+                <h2 class="text-3xl font-extrabold mb-6">Problem Statement</h2>
+                <p class="text-slate-700 leading-relaxed text-justify">Traditional hotel systems lack automation, centralized management, and real-time analytics. Manual booking and dining operations create inefficiencies and reduce customer experience.</p>
+            </div>
+	            <div class="space-y-6">
+	                <div class="glass p-7 rounded-3xl border-r-4 border-[#d1d5db]">
+	                    <h3 class="text-[#c9a227] font-bold text-xs uppercase tracking-widest mb-2">Literature Review / Market Research</h3>
+	                    <p class="text-sm text-slate-700 italic">Existing systems provide partial automation but lack unified dashboards and intelligent management.</p>
+	                </div>
+	                <div class="glass p-7 rounded-3xl border-r-4 border-[#d1d5db]">
+	                    <h3 class="text-[#c9a227] font-bold text-xs uppercase tracking-widest mb-2">Research Gap / Innovation</h3>
+	                    <p class="text-sm text-slate-700 italic">This system integrates full hotel operations including booking, dining, analytics, and admin control in one centralized intelligent system.</p>
+	                </div>
+	            </div>
+	        </section>
+
+        <section id="methodology" class="space-y-12">
+            <h2 class="text-4xl font-black text-center uppercase tracking-tight">System <span class="text-[#c9a227]">Methodology</span></h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass p-8 rounded-3xl text-center">
+                    <i class="fas fa-database text-[#c9a227] text-3xl mb-4"></i>
+                    <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Dataset / Input</h3>
+                    <p class="text-sm text-slate-700">Hotel booking data, customer data, dining orders, and room inventory managed using MySQL database.</p>
+                </div>
+                <div class="glass p-8 rounded-3xl text-center">
+                    <i class="fas fa-microchip text-[#c9a227] text-3xl mb-4"></i>
+                    <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Model / Architecture</h3>
+                    <p class="text-sm text-slate-700">Full-stack architecture using PHP backend, MySQL database, and responsive frontend with HTML, CSS, and JavaScript.</p>
+                </div>
+                <div class="glass p-8 rounded-3xl text-center border-2 border-green-500/20 bg-green-500/5">
+                    <i class="fab fa-python text-green-500 text-3xl mb-4"></i>
+                    <h3 class="font-bold mb-4 uppercase text-xs tracking-widest text-green-400">Live Execution</h3>
+                    <a href="https://github.com/Yogesh-JAAT-001/Hotel" target="_blank" class="px-6 py-2 bg-green-600 rounded-full text-[10px] font-black hover:bg-green-500 transition shadow-lg shadow-green-900/40">VIEW CODE / DEMO</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass p-10 rounded-3xl text-center">
+            <h2 class="text-3xl font-extrabold mb-6">Project Demo Video</h2>
+            
+            <div class="aspect-video rounded-2xl overflow-hidden shadow-lg">
+                <iframe 
+                    class="w-full h-full"
+                    src="https://www.youtube.com/embed/sgep-sNboQI"
+                    title="Hotel Management System Demo"
+                    frameborder="0"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="mt-6">
+                <a href="https://github.com/Yogesh-JAAT-001/Hotel"
+                   target="_blank"
+                   class="px-8 py-3 bg-[#c9a227] text-white rounded-full font-bold hover:bg-[#b8961e] transition">
+                   View GitHub Repository
+                </a>
+            </div>
+        </section>
+
+	        <section id="results" class="glass p-12 rounded-[3.5rem] border-t-4 border-[#c9a227]">
+            <h2 class="text-3xl font-black mb-12 text-center uppercase tracking-tight">Results & <span class="text-[#c9a227]">Analysis</span></h2>
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="h-80"><canvas id="resultsChart"></canvas></div>
+                <div class="space-y-6">
+                    <div class="p-6 rounded-2xl bg-white/70 flex justify-between items-center border border-gray-300 shadow-inner">
+                        <span class="text-slate-700 font-bold uppercase text-xs tracking-widest">Accuracy / Performance</span>
+                        <span class="text-[#c9a227] font-mono font-black text-3xl">92%</span>
+                    </div>
+                    <p class="text-slate-700 text-sm italic text-justify leading-relaxed">The system successfully automates hotel booking, dining, and administrative operations with improved efficiency, accuracy, and user experience.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="text-center pt-10 border-t border-gray-300">
+            <h2 class="text-[10px] font-black text-slate-600 uppercase tracking-[0.5em] mb-12">Academic Credits</h2>
+            <div class="flex flex-wrap justify-center gap-10">
+                <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-[#c9a227]">
+                    <p class="text-[9px] font-bold text-[#c9a227] mb-2 uppercase tracking-widest">Project Guide</p>
+                    <p class="font-black text-xl text-[#0f172a]">Dr. Tapan Kumar</p>
+                </div>
+                <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-gray-400">
+                    <p class="text-[9px] font-bold text-slate-600 mb-2 uppercase tracking-widest">Team Member 1</p>
+                    <p class="font-black text-xl text-[#0f172a]">Yogesh Kumar</p>
+                    <p class="text-[10px] text-slate-600 mt-1">2427030798</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 text-center bg-white/70 border-t border-gray-300">
+        <p class="text-slate-700 text-[10px] font-bold tracking-[0.3em] uppercase mb-2">Manipal University Jaipur</p>
+        <p class="text-slate-600 text-[9px] font-medium tracking-[0.2em] uppercase opacity-70">Department of Computer Science & Engineering • 2026</p>
+    </footer>
+
+    <script>
+        // TIMER LOGIC
+        let sec = 0;
+        let timer = null;
+        function startTimer() {
+            timer = setInterval(() => {
+                sec++;
+                let m = Math.floor(sec / 60);
+                let s = sec % 60;
+                document.getElementById('displayTime').innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+                
+                if (sec >= 480 && sec < 600) { // 8-10 Mins Warning
+                    document.getElementById('timerContainer').classList.add('timer-warning');
+                    document.getElementById('timerIcon').classList.replace('fa-hourglass-start', 'fa-hourglass-half');
+                } else if (sec >= 600) { // 10 Mins Stop
+                    clearInterval(timer);
+                    document.getElementById('timerContainer').classList.replace('timer-warning', 'timer-stop');
+                    document.getElementById('displayTime').innerText = "10:00";
+                    document.getElementById('timerIcon').classList.replace('fa-hourglass-half', 'fa-hourglass-end');
+                }
+            }, 1000);
+        }
+
+        // RESULTS CHART (Demo Data)
+        const ctx = document.getElementById('resultsChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Existing System', 'Our Solution'],
+                datasets: [{
+                    data: [70, 92],
+                    backgroundColor: ['#d1d5db', '#c9a227'],
+                    borderRadius: 15,
+                    barThickness: 50
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { 
+                    y: { beginAtZero: true, grid: { color: '#d1d5db55' }, ticks: { color: '#334155' } },
+                    x: { grid: { display: false }, ticks: { color: '#334155' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
